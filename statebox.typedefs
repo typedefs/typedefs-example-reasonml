@@ -1,0 +1,42 @@
+(mu list (nil 1) (cons (* (var 1) (var 0))))
+
+(name bit (+ 1 1))
+
+(name nibble (* bit bit bit bit))
+
+(name byte (* nibble nibble))
+
+(name char byte)
+
+(name string (list char))
+
+(name bytes (list byte))
+
+(name repeated list)
+
+(name intThirtyTwo (* byte byte byte byte))
+
+(message diagram
+  (record
+    (required name string)
+    (required width intThirtyTwo)
+    (repeated pixels intThirtyTwo)
+    (repeated names string)))
+
+(message net
+  (record
+    (required name string)
+    (repeated partition intThirtyTwo)
+    (repeated names string)
+    (repeated placeNames string)))
+
+(message wiring
+  (record
+    (repeated nets net)
+    (repeated diagrams diagram)
+    (repeated labels intThirtyTwo)))
+
+(message tx
+  (record
+    (required previous bytes)
+    (repeated path intThirtyTwo)))
